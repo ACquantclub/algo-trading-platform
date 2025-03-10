@@ -1,0 +1,32 @@
+[project]
+name = "algo-trading-platform"
+version = "0.1.0"
+description = "Pubilc facing version of the Algorithmic Trading Platform used by the Amherst Quant Competition."
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "black>=25.1.0",
+    "gradescope-utils>=0.5.0",
+    "numpy>=2.2.2",
+    "pandas>=2.2.3",
+    "pytest>=8.3.4",
+    "pytest-cov>=6.0.0",
+    "python-dotenv>=1.0.1",
+    "requests>=2.32.3",
+    "scipy>=1.15.1",
+]
+
+[tool.pytest.ini_options]
+pythonpath = "."
+addopts = "--cov=src --cov-report=term-missing --cov-fail-under=90"
+testpaths = ["tests"]
+
+[tool.black]
+line-length = 88
+target-version = ['py313']
+include = '\.pyi?$'
+
+[project.optional-dependencies]
+dev = [
+    "black>=24.2.0",
+]

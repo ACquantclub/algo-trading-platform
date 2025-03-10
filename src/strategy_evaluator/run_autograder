@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+
+set -e
+
+# Create results directory
+mkdir -p /autograder/results
+
+# Set up autograder files
+cd /autograder/source
+
+# Run tests
+/usr/bin/python3 run_tests.py
+
+# Ensure results file exists
+if [ ! -f /autograder/results/results.json ]; then
+    echo '{"score": 0, "output": "Error: No results generated"}' > /autograder/results/results.json
+fi

@@ -1,0 +1,116 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{hyperref}
+\usepackage[margin=1in]{geometry}
+
+\title{Algorithmic Trading Case Packet}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\section{Overview}
+Welcome to the Algorithmic Trading Case! Participants will develop an algorithm to allocate capital for a portfolio of 26 stocks, which vary in exchange/country, market cap, and industry. The goal is to create an algorithm that optimally allocates funds over a \textbf{4-month horizon} to maximize performance on various financial metrics.
+
+\section{Objective}
+Your objective is to develop an algorithm that constructs and rebalances a portfolio based on daily market data. The performance of your algorithm will be evaluated based on the following metrics:
+\begin{itemize}
+    \item \textbf{Sharpe Ratio}
+    \item \textbf{Sortino Ratio}
+    \item \textbf{Max Drawdown}
+    \item \textbf{Volatility}
+    \item \textbf{Annual Return}
+    \item \textbf{Calmar Ratio}
+    \item \textbf{Win Rate}
+\end{itemize}
+
+Each algorithm's performance on each of these metrics will be compared individually against others, resulting in each algorithm having a separate rank for each metric. A \textbf{weighted sum of the ranks} will determine the final score, where the \textbf{lowest weighted sum of ranks wins}.
+
+\section{Provided Data}
+Participants will receive:
+\begin{itemize}
+    \item \textbf{One year} of historical daily price (in USD) and volume data for each stock
+    \begin{itemize}
+        \item Open, Close, High, Low prices
+        \item Trading Volume
+    \end{itemize}
+    \item Example implementation of a valid submission
+\end{itemize}
+
+Both files are attached in the same email as this case packet.
+
+\section{Market Assumptions}
+\begin{itemize}
+    \item No \textbf{exchange fees} or \textbf{bid-ask spreads}.
+    \item No \textbf{liquidity concerns}.
+    \item All weights must be \textbf{non-negative}. The backtester will automatically normalize the weights to sum to 1.
+    \item Returns for each stock are based on the \% change in closing price between two time steps.
+\end{itemize}
+
+\section{Submission Guidelines}
+\begin{itemize}
+    \item Participants must submit a Python file (.py) on \textbf{Gradescope} before the deadline.
+    \item Participants can submit individually or as a part of a team of up to 3 individuals.
+    \item The submission must contain a \textbf{class} with an \texttt{allocate} function.
+    \begin{itemize}
+        \item The backtester will create \textbf{1 instance} of your class, after which it will call the \texttt{allocate} function of your instance for every time step.
+        \item Each time it calls \texttt{allocate}, the backtester will pass in the trading data for the corresponding time step.
+        \item The \texttt{allocate} function must return a \textbf{numpy array} of portfolio weights.
+        \item All weights must be \textbf{non-negative}. The backtester will automatically normalize the weights to 1.
+    \end{itemize}
+    \item Participants \textbf{can choose to} store useful information (e.g., moving average returns) as instance variables within the class.
+\end{itemize}
+
+\section{Rules \& Restrictions}
+\begin{itemize}
+    \item \textbf{Programming Language:} Python 3.13
+    \item \textbf{Allowed Libraries:}
+    \begin{itemize}
+        \item \texttt{numpy>=2.2.2}
+        \item \texttt{pandas>=2.2.3}
+        \item \texttt{scipy>=1.15.1}
+    \end{itemize}
+    \item Participants can use \textbf{any packages or tools} to analyze training data, but the final submission must adhere to the above restrictions.
+    \item \textbf{Machine learning is not required} and is not the focus of this competition.
+    \item \textbf{Disqualification:}
+    \begin{itemize}
+        \item Code that does not compile will be disqualified.
+        \item Participants found abusing the Gradescope backtester for unfair advantages will be removed.
+    \end{itemize}
+\end{itemize}
+
+\section{Recommended Approach to the Case}
+\begin{enumerate}
+    \item \textbf{Training \& Testing}:
+    \begin{itemize}
+        \item Train your algorithm using the provided training data.
+        \item Locally test performance before submission.
+    \end{itemize}
+    \item \textbf{Submission \& Leaderboard}:
+    \begin{itemize}
+        \item Submit before the deadline.
+        \item Gradescope will evaluate performance on the \textbf{test dataset} (immediately following the training dataset).
+        \item Leaderboard will display rankings for individual metrics, but \textbf{final scores} will be determined after submissions close.
+    \end{itemize}
+    \item \textbf{Revise Model}:
+    \begin{itemize}
+        \item Repeat steps 1 and 2 based on information you learned from step 2 until you're satisfied with your algorithm and/or the submission deadline has passed.
+    \end{itemize}
+    \item \textbf{Final Evaluation}:
+    \begin{itemize}
+        \item The final run of algorithms will take place \textbf{before the competition day (March 1st)}.
+        \item Results will be announced on the day of the competition.
+    \end{itemize}
+\end{enumerate}
+
+\section{Tips for Success}
+\begin{itemize}
+    \item \textbf{Analyze returns, not prices}: Stock prices are typically non-stationary, while returns are more stable.
+    \item \textbf{Avoid overfitting}: Do not test your strategy on the same data you train it on.
+    \item \textbf{Submit early}: Ensure your code compiles correctly before the deadline. Take advantage of the backtester we provided.
+\end{itemize}
+
+We look forward to seeing your submissions and wish you the best of luck!
+
+\end{document}
