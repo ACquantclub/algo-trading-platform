@@ -14,9 +14,12 @@ This repository contains the platform and resources for the Amherst College Quan
 
 ## Bot Baseline Submissions
 The competition includes baseline submissions generated from leading LLMs:
-- ChatGPT
-- Claude
-- DeepSeek
+- ChatGPT-4o
+- Claude 3.5 Sonnet
+- DeepSeek R1
+- Gemini 2.0 Flash
+- Perplexity Deep Research
+- And more...
 
 These bots received identical information as participants (case packet, training data, example code) and serve as performance benchmarks.
 
