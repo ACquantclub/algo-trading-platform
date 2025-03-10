@@ -4,7 +4,7 @@
 
 
 ## Overview
-This repository contains the platform and resources for the Amherst College Quant Competittion: Algorithmic Trading Case, where participants develop portfolio allocation strategies across a diverse set of global stocks.
+This repository contains the platform and resources for the Amherst College Quant Competition: Algorithmic Trading Case, where participants develop portfolio allocation strategies across a diverse set of global stocks.
 
 ## Competition Structure
 - **Objective**: Develop algorithms for optimal portfolio allocation
