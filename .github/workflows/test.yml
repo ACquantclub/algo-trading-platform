@@ -37,7 +37,6 @@ jobs:
         python -m pytest --cov=src --cov-report=term-missing --cov-fail-under=95
 
     - name: Coveralls workflow
-      run: |
-        coveralls --service=github
+      uses: coverallsapp/github-action@v2
       env:
           github-token: ${{ secrets.GITHUB_TOKEN }}
